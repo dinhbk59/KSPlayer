@@ -201,7 +201,7 @@ extension KSMEPlayer: MEPlayerDelegate {
                 KSLog("[audio] audio type: \(self.audioOutput) prepare audioFormat )")
                 self.audioOutput.prepare(audioFormat: audioDescriptor.audioFormat)
             }
-            if let controlTimebase = videoOutput?.displayLayer.controlTimebase, self.options.startPlayTime > 1 {
+            if let controlTimebase = self.videoOutput?.displayLayer.controlTimebase, self.options.startPlayTime > 1 {
                 CMTimebaseSetTime(controlTimebase, time: CMTimeMake(value: Int64(self.options.startPlayTime), timescale: 1))
             }
             self.delegate?.readyToPlay(player: self)
