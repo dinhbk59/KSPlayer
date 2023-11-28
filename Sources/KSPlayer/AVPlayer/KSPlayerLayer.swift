@@ -114,15 +114,9 @@ open class KSPlayerLayer: UIView {
                 firstPlayerType = KSOptions.firstPlayerType
             }
             if type(of: player) == firstPlayerType {
-                if url == oldValue {
-                    if options.isAutoPlay {
-                        play()
-                    }
-                } else {
-                    resetPlayer()
-                    player.replace(url: url, options: options)
-                    prepareToPlay()
-                }
+                resetPlayer()
+                player.replace(url: url, options: options)
+                prepareToPlay()
             } else {
                 resetPlayer()
                 player = firstPlayerType.init(url: url, options: options)
